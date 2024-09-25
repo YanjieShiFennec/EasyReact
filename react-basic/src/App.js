@@ -2,11 +2,11 @@
 // App -> index.js -> public/index.html(root)
 
 function App() {
-  return (
-    <div className="App">
-      this is App
-    </div>
-  );
+    return (
+        <div className="App">
+            this is App
+        </div>
+    );
 }
 
 export default App;
