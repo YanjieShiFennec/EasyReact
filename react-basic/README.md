@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Error
+### `sh: react-scripts: command not found`
+#### then run
+### `npm install`
+
 ## Available Scripts
 
 In the project directory, you can run:
