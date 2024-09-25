@@ -7,6 +7,11 @@ function getAge() {
     return 18;
 }
 
+const style = {
+    color: "cyan",
+    fontSize: "x-small"
+}
+
 function App() {
     return (
         <div className="App">
@@ -24,7 +29,8 @@ function App() {
             {new Date().getDate()}
 
             {/*{使用 js 对象，外层花括号识别 js，内层花括号表示对象结构}*/}
-            <div style={{color: "red"}}>this is div</div>
+            {/*<div style={{color: "red"}}>this is div</div>*/}
+            <div style={style}>this is div</div>
         </div>
     );
 }
