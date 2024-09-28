@@ -2,21 +2,33 @@
 import {useState} from "react";
 
 function App() {
-    // 1. 调用 useState 添加一个状态变量
-    // count 状态变量
-    // setCount 修改状态变量的方法
-    const [count, setCount] = useState(0);
+    let [count, setCount] = useState(0);
 
-    // 2. 点击事件回调
     const handleClick = () => {
-        // 作用：1. 用传入的新值修改 count
-        // 2. 重新使用新的 count 渲染 UI
+        // 直接修改无法引发视图更新
+        // count++;
+        // console.log(count);
         setCount(count + 1);
+    }
+
+    // 修改对象状态
+    const [form, setForm] = useState({name: "React"});
+
+    const changeForm = () => {
+        // 错误写法：直接修改
+        // form.name = "Vue";
+
+        // 正确写法：setForm 传入一个全新的对象
+        setForm({
+            ...form, // ... 为展开运算符，可将数组和对象合并或展开
+            name: "Vue"
+        });
     }
 
     return (
         <div className="App">
             <button onClick={handleClick}>{count}</button>
+            <button onClick={changeForm}>修改 form{form.name}</button>
         </div>
     );
 }
