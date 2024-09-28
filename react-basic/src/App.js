@@ -30,7 +30,7 @@ const defaultList = [
         rpid: 2,
         user: {
             uid: '36080105',
-            avatar: '',
+            avatar: 'http://toutiao.itheima.net/resources/images/98/jpg',
             uname: '许嵩',
         },
         content: '我寻你千百度 日出到迟暮',
@@ -79,6 +79,13 @@ const App = () => {
     // 1. 使用 useState 维护 list
     const [commentList, setcommentList] = useState(defaultList);
 
+    // 删除功能
+    const handleDel = (id) => {
+        console.log(id);
+        // 对 commentList 做过滤处理
+        setcommentList(commentList.filter(item => item.rpid !== id));
+    }
+
     return (
         <div className="app">
             {/* 导航 Tab */}
@@ -122,7 +129,7 @@ const App = () => {
                 <div className="reply-list">
                     {/* 评论项 */}
                     {commentList.map(item => (
-                        <div className="reply-item">
+                        <div key={item.rpid} className="reply-item">
                             {/* 头像 */}
                             <div className="root-reply-avatar">
                                 <div className="bili-avatar">
@@ -140,17 +147,18 @@ const App = () => {
                                     <div className="user-name">{item.user.uname}</div>
                                 </div>
                                 {/* 评论内容 */}
-                                <div key={item.rpid} className="root-reply">
+                                <div className="root-reply">
                                     <span className="reply-content">{item.content}</span>
                                     <div className="reply-info">
                                         {/* 评论时间 */}
                                         <span className="reply-time">{item.ctime}</span>
                                         {/* 评论数量 */}
                                         <span className="reply-time">点赞数:{item.like}</span>
-                                        <span className="delete-btn">
-                    删除
-                  </span>
-
+                                        {/*{条件：user.id === item.user.id}*/}
+                                        {user.uid === item.user.uid &&
+                                            <span className="delete-btn" onClick={() => handleDel(item.rpid)}>
+                                                删除
+                                            </span>}
                                     </div>
                                 </div>
                             </div>
