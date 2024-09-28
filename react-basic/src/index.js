@@ -1,12 +1,6 @@
-// 项目的入口 从这里开始运行
+import { createRoot } from 'react-dom/client'
+import App from './App'
 
-// React 必要的两个核心包
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+const root = createRoot(document.querySelector('#root'))
 
-// 导入项目的根组件
-import App from './App';
-
-// 把 App 根组件渲染到 id 为 root 的 dom 节点上 ../public/index.html
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>);
+root.render(<App />)
