@@ -1,6 +1,7 @@
 # 所需组件
-### lodash
+### lodash, classnames
 ### `npm i lodash`
+### `npm i classnames`
 
 # Getting Started with Create React App
 
