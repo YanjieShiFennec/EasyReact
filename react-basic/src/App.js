@@ -1,30 +1,40 @@
-// 核心：崽子组件中调用父组件中的函数并传递实参
+// 1. 通过子传父 A -> App
+// 2. 通过父传子 App -> B
 
 // {onGetMsg} 结构赋值
 import {useState} from "react";
 
-function Son({onGetMsg}) {
-    // Son 组件中的数据
-    const sonMsg = 'this is son msg'
+function A({onGetAName}) {
+    const name = 'this is A name'
     return (
         <div>
-            this is Son
-            <button onClick={() => onGetMsg(sonMsg)}>sendMsg</button>
+            this is A component,
+            <button onClick={() => onGetAName(name)}>send</button>
+        </div>
+    )
+}
+
+function B({name}) {
+    return (
+        <div>
+            this is B component,
+            {name}
         </div>
     )
 }
 
 function App() {
-    const [msg, setMsg] = useState('');
-    const getMsg = (msg) => {
-        console.log(msg);
-        setMsg(msg);
+    const [name, setName] = useState('');
+    const getAName = (name) => {
+        console.log(name);
+        setName(name);
     };
 
     return (
         <div className="App">
-            this is App, {msg}
-            <Son onGetMsg={getMsg}/>
+            this is App
+            <A onGetAName={getAName}/>
+            <B name={name}/>
         </div>
     );
 }
