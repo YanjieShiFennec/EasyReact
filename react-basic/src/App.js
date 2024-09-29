@@ -1,6 +1,7 @@
 import './App.scss'
 import avatar from './images/bozai.png'
 import {useState} from "react";
+import _ from 'lodash'
 
 /**
  * 评论列表的渲染和操作
@@ -77,22 +78,32 @@ const tabs = [
 const App = () => {
     // 渲染评论列表
     // 1. 使用 useState 维护 list
-    const [commentList, setcommentList] = useState(defaultList);
+    const [commentList, setCommentList] = useState(_.orderBy(defaultList, 'like', 'desc'));
 
     // 删除功能
     const handleDel = (id) => {
         console.log(id);
         // 对 commentList 做过滤处理
-        setcommentList(commentList.filter(item => item.rpid !== id));
+        setCommentList(commentList.filter(item => item.rpid !== id));
     };
 
     // tab 切换功能
     // 1. 记录点击的 type
     // 2. 通过记录的 type 和每一项遍历时的 type 做匹配 控制激活类名的显示
     const [type, setType] = useState("hot");
-    const handleTabChange = (type)=>{
+    const handleTabChange = (type) => {
         console.log(type);
         setType(type);
+
+        // 基于列表的排序
+        if (type === 'hot') {
+            // 根据点赞数排序
+            // lodash
+            setCommentList(_.orderBy(commentList, 'like', 'desc'));
+        } else if (type === 'time') {
+            // 根据创建时间排序
+            setCommentList(_.orderBy(commentList, 'ctime', 'desc'));
+        }
     };
 
     return (
