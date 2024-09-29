@@ -1,7 +1,6 @@
-# 所需组件
-### lodash, classnames
-### `npm i lodash`
-### `npm i classnames`
+# 依赖组件
+### lodash, classnames, uuid, dayjs
+### `npm install`
 
 # Getting Started with Create React App
 
