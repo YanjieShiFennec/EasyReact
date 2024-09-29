@@ -1,20 +1,30 @@
-// 父传子
-// 1. 父组件传递数据 子组件标签身上绑定属性
-// 2. 子组件接收数据 props 参数
+// 核心：崽子组件中调用父组件中的函数并传递实参
 
-function Son(props) {
-    // props: 对象里面包含了父组件传递过来的所有数据
-    console.log(props);
-    return <div>this is son {props.children}</div>
+// {onGetMsg} 结构赋值
+import {useState} from "react";
+
+function Son({onGetMsg}) {
+    // Son 组件中的数据
+    const sonMsg = 'this is son msg'
+    return (
+        <div>
+            this is Son
+            <button onClick={() => onGetMsg(sonMsg)}>sendMsg</button>
+        </div>
+    )
 }
 
 function App() {
-    const name = "this is app name";
+    const [msg, setMsg] = useState('');
+    const getMsg = (msg) => {
+        console.log(msg);
+        setMsg(msg);
+    };
+
     return (
         <div className="App">
-            <Son>
-                <span>this is span</span>
-            </Son>
+            this is App, {msg}
+            <Son onGetMsg={getMsg}/>
         </div>
     );
 }
