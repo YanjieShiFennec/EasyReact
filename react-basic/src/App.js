@@ -1,10 +1,11 @@
 import './App.scss'
 import avatar from './images/bozai.png'
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import _ from 'lodash'
 import classNames from 'classnames'
 import {v4 as uuidV4} from "uuid";
 import dayjs from "dayjs";
+import axios from "axios";
 
 /**
  * 评论列表的渲染和操作
@@ -81,7 +82,22 @@ const tabs = [
 const App = () => {
     // 渲染评论列表
     // 1. 使用 useState 维护 list
-    const [commentList, setCommentList] = useState(_.orderBy(defaultList, 'like', 'desc'));
+    // const [commentList, setCommentList] = useState(_.orderBy(defaultList, 'like', 'desc'));
+
+    // 获取接口数据渲染
+    const [commentList, setCommentList] = useState([]);
+
+    useEffect(() => {
+        // 请求 json-server 的 db.json 数据
+        async function getList() {
+            // axios 请求数据
+            const res = await axios.get("http://localhost:3004/list");
+            setCommentList(_.orderBy(res.data, 'like', 'desc'));
+        }
+
+        getList();
+    }, []);
+
 
     // 删除功能
     const handleDel = (id) => {

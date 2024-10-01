@@ -1,5 +1,6 @@
 # 依赖组件
-### lodash, classnames, uuid, dayjs
+### lodash, classnames, uuid, dayjs, json-server, axios
+### `npm i json-server -D`
 ### `npm install`
 
 # Getting Started with Create React App
