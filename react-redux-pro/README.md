@@ -1,5 +1,5 @@
 # 依赖组件
-### @reduxjs/toolkit, react-redux
+### @reduxjs/toolkit, react-redux, axios
 ### `npm install`
 
 # Getting Started with Create React App
