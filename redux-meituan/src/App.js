@@ -28,7 +28,7 @@ const App = () => {
             {/* 内容 */}
             <div className="content-wrap">
                 <div className="content">
-                    <Menu foodsList={foodsList}/>
+                    <Menu/>
 
                     <div className="list-content">
                         <div className="goods-list">
