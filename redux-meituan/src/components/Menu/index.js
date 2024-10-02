@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {fetchFoodsList} from "../../store/modules/takeaway";
 
-const Menu = () => {
+const Menu = ({foodsList}) => {
     // 触发 action 执行
     // 1. useDispatch -> dispatch 2. actionCreater 导入进来 3. useEffect
     // const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const Menu = () => {
 
     // 获取 foodsList 渲染数据列表
     // 1. useSelector
-    const {foodsList} = useSelector(state => state.foods);
+    // const {foodsList} = useSelector(state => state.foods);
 
     const menus = foodsList.map(item => ({tag: item.tag, name: item.name}))
     return (
