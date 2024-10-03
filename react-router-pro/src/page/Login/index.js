@@ -1,5 +1,18 @@
+import {Link, useNavigate} from "react-router-dom";
+
 const Login = () => {
-    return <div>登录页</div>;
+    const navigate = useNavigate();
+
+    return (
+        <div>
+            登录页
+            {/*{声明式写法}*/}
+            <Link to="/article">跳转到文章页</Link>
+
+            {/*{编程式写法}*/}
+            <button onClick={() => navigate('/article')}>跳转到文章页</button>
+        </div>
+    );
 };
 
 export default Login;
