@@ -41,12 +41,12 @@ const foodsStore = createSlice({
         decreCount(state, action) {
             // 关键点：找到当前要修改谁的 count
             const item = state.cartList.find(item => item.id === action.payload.id);
-            // 自动删除
-            // const index = state.cartList.findIndex(item => item.id === action.payload.id);
-            // if (item.count === 1) {
-            //     state.cartList.splice(index, 1);
-            //     return;
-            // }
+            // 为 0 时移除购物车
+            const index = state.cartList.findIndex(item => item.id === action.payload.id);
+            if (item.count === 1) {
+                state.cartList.splice(index, 1);
+                return;
+            }
             if (item.count === 0) {
                 return;
             }
