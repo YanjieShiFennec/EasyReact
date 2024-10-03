@@ -11,8 +11,8 @@ import store from "@/store";
 // 导入定制主题文件
 import '@/theme.css'
 
-const total = sum(1, 3);
-console.log(total);
+// const total = sum(1, 3);
+// console.log(total);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
