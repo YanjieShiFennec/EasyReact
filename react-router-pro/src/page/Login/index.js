@@ -11,6 +11,8 @@ const Login = () => {
 
             {/*{编程式写法}*/}
             <button onClick={() => navigate('/article')}>跳转到文章页</button>
+            <button onClick={() => navigate('/article?id=1001&name=jack')}>searchParams 传参</button>
+            <button onClick={() => navigate('/article/1001/jack')}>params 传参</button>
         </div>
     );
 };
