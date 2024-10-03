@@ -1,21 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
-// 1. 创建 router 实例对象并且配置路由关系
-const router = createBrowserRouter([
-    {
-        path: '/login',
-        element: <div>登录页</div>
-    },
-    {
-        path: '/article',
-        element: <div>文章页</div>
-    }
-]);
+// 1. 导入路由 router
+import router from "./router";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
