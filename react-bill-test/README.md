@@ -1,8 +1,8 @@
 # 依赖组件
-### @reduxjs/toolkit, react-redux, react-router-dom, dayjs, classnames, antd-mobile, axios, @craco/craco
+### @reduxjs/toolkit, react-redux, react-router-dom, dayjs, classnames, antd-mobile, axios, @craco/craco, json-server
 ### `npm i @reduxjs/toolkit react-redux react-router-dom dayjs classnames antd-mobile axios`
 ### 安装在开发环境
-### `npm i -D @craco/craco`
+### `npm i -D @craco/craco json-server`
 
 # Getting Started with Create React App
 
