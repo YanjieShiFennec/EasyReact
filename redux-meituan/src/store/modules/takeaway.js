@@ -30,12 +30,37 @@ const foodsStore = createSlice({
             } else {
                 state.cartList.push(action.payload);
             }
+        },
+        // count 增
+        increCount(state, action) {
+            // 关键点：找到当前要修改谁的 count
+            const item = state.cartList.find(item => item.id === action.payload.id);
+            item.count++;
+        },
+        // count 减
+        decreCount(state, action) {
+            // 关键点：找到当前要修改谁的 count
+            const item = state.cartList.find(item => item.id === action.payload.id);
+            // 自动删除
+            // const index = state.cartList.findIndex(item => item.id === action.payload.id);
+            // if (item.count === 1) {
+            //     state.cartList.splice(index, 1);
+            //     return;
+            // }
+            if (item.count === 0) {
+                return;
+            }
+            item.count--;
+        },
+        // 清除购物车
+        clearCart(state) {
+            state.cartList = [];
         }
     }
 });
 
 // 异步获取部分
-const {setFoodsList, changeActiveIndex, addCart} = foodsStore.actions;
+const {setFoodsList, changeActiveIndex, addCart, increCount, decreCount, clearCart} = foodsStore.actions;
 const fetchFoodsList = () => {
     return async (dispatch) => {
         // 编写异步逻辑
@@ -45,6 +70,6 @@ const fetchFoodsList = () => {
     };
 }
 
-export {fetchFoodsList, changeActiveIndex, addCart};
+export {fetchFoodsList, changeActiveIndex, addCart, increCount, decreCount, clearCart};
 const reducer = foodsStore.reducer;
 export default reducer;
