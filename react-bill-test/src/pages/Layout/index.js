@@ -34,10 +34,11 @@ const Layout = () => {
         dispatch(getBillList());
     }, [dispatch]);
 
+    // 切换菜单跳转路由
     const navigate = useNavigate();
     const switchRoute = (path)=>{
         navigate(path);
-    }
+    };
 
     return (
         <div className="layout">
