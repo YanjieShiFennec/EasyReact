@@ -20,12 +20,17 @@ const DailyBill = ({date, billList}) => {
     }, [billList]);
 
     // 控制展开收起
+    const [visible, setVisible] = useState(false);
+
+    // 控制展开收起
     return (
         <div className={classNames('dailyBill')}>
             <div className="header">
                 <div className="dateIcon">
                     <span className="date">{date}</span>
                     {/* expand 有这个类名 展开的箭头朝上的样子 */}
+                    <span className={classNames('arrow', visible && 'expand')}
+                          onClick={() => setVisible(!visible)}></span>
                 </div>
                 <div className="oneLineOverview">
                     <div className="pay">
@@ -43,7 +48,7 @@ const DailyBill = ({date, billList}) => {
                 </div>
             </div>
             {/* 单日列表 */}
-            <div className="billList">
+            <div className="billList" style={{display: visible ? 'block' : 'none'}}>
                 {billList.map(item => {
                     return (
                         <div className="bill" key={item.id}>
