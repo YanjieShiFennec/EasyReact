@@ -1,5 +1,5 @@
 # 依赖组件
-### @reduxjs/toolkit, react-redux, react-router-dom, dayjs, classnames, antd-mobile, axios, @craco/craco, json-server, sass
+### @reduxjs/toolkit, react-redux, react-router-dom, dayjs, classnames, antd-mobile, axios, @craco/craco, json-server, sass, lodash
 ### `npm i @reduxjs/toolkit react-redux react-router-dom dayjs classnames antd-mobile axios`
 ### 安装在开发环境
 ### `npm i -D @craco/craco json-server sass`
