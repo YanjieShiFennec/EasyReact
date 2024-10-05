@@ -1,8 +1,8 @@
 # 依赖组件
-### antd, react-router-dom
-### `npm i antd react-router-dom`
+### antd react-router-dom axios
+### `npm i antd react-router-dom axios`
 ### 安装在开发环境
-### sass, @craco/craco
+### sass @craco/craco
 ### `npm i -D sass @craco/craco`
 
 # Getting Started with Create React App
