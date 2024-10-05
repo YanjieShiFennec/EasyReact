@@ -1,15 +1,10 @@
 import './index.scss'
 import {Card, Form, Input, Button} from 'antd'
 import logo from '@/assets/logo.png'
-import {useDispatch} from "react-redux";
-import {fetchLogin} from "@/store/modules/user";
 
 const Login = () => {
-    const dispatch = useDispatch();
     const onFinish = (values) => {
         console.log(values);
-        // 触发异步 action fetchLogin
-        dispatch(fetchLogin(values));
     };
 
     return (
@@ -20,7 +15,6 @@ const Login = () => {
                 <Form onFinish={onFinish} validateTrigger="onBlur">
                     <Form.Item
                         name="mobile"
-                        initialValue="13800000002"
                         // 多条校验逻辑 先校验第一条 第一条通过之后再校验第二条
                         rules={[
                             {
@@ -36,7 +30,6 @@ const Login = () => {
                     </Form.Item>
                     <Form.Item
                         name="code"
-                        initialValue="246810"
                         rules={[
                             {
                                 required: true,
