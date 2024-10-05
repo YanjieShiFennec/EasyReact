@@ -1,5 +1,6 @@
 // 和用户相关的状态管理
 import {createSlice} from "@reduxjs/toolkit";
+import {request} from "@/utils";
 
 const userStore = createSlice({
     name: "user",
@@ -21,5 +22,15 @@ const {setToken} = userStore.actions;
 // 获取 reducer 函数
 const userReducer = userStore.reducer;
 
-export {setToken};
+// 异步方法
+const fetchLogin = (loginForm) => {
+    return async (dispatch) => {
+        // 1. 发送异步请求
+        const res = await request.post('/authorizations', loginForm);
+        // 2. 提交同步 action 进行 token  的存入
+        dispatch(setToken(res.data.token));
+    };
+};
+
+export {setToken, fetchLogin};
 export default userReducer;
