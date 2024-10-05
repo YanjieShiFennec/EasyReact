@@ -2,7 +2,11 @@
 // import {request} from "@/utils";
 
 import {request} from "@/utils/request";
+import {getToken, setToken, removeToken} from "@/utils/token";
 
-export  {
-    request
+export {
+    request,
+    setToken,
+    getToken,
+    removeToken
 };
