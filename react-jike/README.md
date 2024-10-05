@@ -1,6 +1,6 @@
 # 依赖组件
-### antd react-router-dom axios react-redux @reduxjs/toolkit 
-### `npm i antd react-router-dom axios react-redux @reduxjs/toolkit normalize.css`
+### antd react-router-dom axios react-redux @reduxjs/toolkitt normalize.css echarts
+### `npm i antd react-router-dom axios react-redux @reduxjs/toolkit normalize.css echarts`
 ### 安装在开发环境
 ### sass @craco/craco
 ### `npm i -D sass @craco/craco`
