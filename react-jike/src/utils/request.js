@@ -1,6 +1,7 @@
 // axios 封装处理
 import axios from 'axios';
-import {getToken} from "@/utils/token";
+import {getToken, removeToken} from "@/utils/token";
+import router from "@/router";
 
 // 1. 根域名配置
 // 2. 超时时间
@@ -16,7 +17,7 @@ request.interceptors.request.use(config => {
     // 操作这个 config 注入 token 数据
     // 1. 获取到 token
     const token = getToken();
-    if(token){
+    if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }
     // 2. 按照后端的格式要求做 token 拼接
@@ -32,6 +33,14 @@ request.interceptors.response.use(response => {
     return response.data;
 }, error => {
     // 超出 2xx 范围内的状态码都会触发该函数
+    // 监控 401 token 失效
+    console.dir(error);
+    if (error.response.status === 401) {
+        removeToken();
+        router.navigate('/login');
+        window.location.reload();
+    }
+
     return Promise.reject(error);
 });
 
